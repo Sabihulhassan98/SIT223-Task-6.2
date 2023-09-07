@@ -32,14 +32,6 @@ pipeline {
             steps {
                 echo "Performing security scan with OWASP Dependency-Check"
             }
-            post {
-                always {
-                    mail to: "sabihulhassan98@gmail.com",
-                        subject: "Security Scan Status Email",
-                        body: "Security scan log attached!",
-                        attachLog: true
-                }
-            }
         }
 
         stage("Deploy to Staging") {
