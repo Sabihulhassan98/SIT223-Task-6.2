@@ -18,19 +18,19 @@ pipeline {
 
         stage("Unit and Integration Tests") {
             steps {
-                echo "Running unit and integration tests with Maven"
+                echo "Running unit and integration tests ...."
             }
         }
 
         stage("Code Analysis") {
             steps {
-                echo "Analyzing code with SonarQube"
+                echo "Analyzing code ....."
             }
         }
 
         stage("Security Scan") {
             steps {
-                echo "Performing security scan with OWASP Dependency-Check"
+                echo "Performing security scan ......"
             }
         }
 
