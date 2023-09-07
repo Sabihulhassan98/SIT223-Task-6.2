@@ -11,7 +11,7 @@ pipeline {
                 always {
                     mail to: "sabihulhassan98@gmail.com",
                         subject: "Build Status Email",
-                        body: "Build log attached!"
+                        body: "Build Successfull!"
                 }
             }
         }
@@ -49,12 +49,6 @@ pipeline {
         stage("Deploy to Production") {
             steps {
                 echo "Deploying to production server (e.g., AWS EC2 instance)"
-            }
-        }
-
-        stage("Complete") {
-            steps {
-                echo "Complete"
             }
         }
     }
