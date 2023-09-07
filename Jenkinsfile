@@ -1,32 +1,67 @@
 pipeline {
     agent any
-    stages{
-        stage("Build"){
-            steps{
-                echo "Building"
+
+    stages {
+        stage("Build") {
+            steps {
+                // Use Maven as the build automation tool for example
+                echo "Building with Maven"
             }
-            post{
-                always{
+            post {
+                always {
                     mail to: "sabihulhassan98@gmail.com",
                         subject: "Build Status Email",
                         body: "Build log attached!"
-            
                 }
             }
         }
-        
-        stage("Test"){
-            steps{
-                echo "Testing ..."
+
+        stage("Unit and Integration Tests") {
+            steps {
+                echo "Running unit and integration tests with Maven"
             }
         }
-        stage("Deploy"){
-            steps{
-                echo "Deploying"
+
+        stage("Code Analysis") {
+            steps {
+                echo "Analyzing code with SonarQube"
             }
         }
-        stage("Complete"){
-            steps{
+
+        stage("Security Scan") {
+            steps {
+                echo "Performing security scan with OWASP Dependency-Check"
+            }
+            post {
+                always {
+                    mail to: "sabihulhassan98@gmail.com",
+                        subject: "Security Scan Status Email",
+                        body: "Security scan log attached!",
+                        attachLog: true
+                }
+            }
+        }
+
+        stage("Deploy to Staging") {
+            steps {
+                echo "Deploying to staging server (e.g., AWS EC2 instance)"
+            }
+        }
+
+        stage("Integration Tests on Staging") {
+            steps {
+                echo "Running integration tests on staging environment"
+            }
+        }
+
+        stage("Deploy to Production") {
+            steps {
+                echo "Deploying to production server (e.g., AWS EC2 instance)"
+            }
+        }
+
+        stage("Complete") {
+            steps {
                 echo "Complete"
             }
         }
