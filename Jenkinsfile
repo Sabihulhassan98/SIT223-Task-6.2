@@ -5,7 +5,7 @@ pipeline {
         stage("Build") {
             steps {
                 // Use Maven as the build automation tool for example
-                echo "Building with Maven ghfgh"
+                echo "Building with Maven"
             }
             post {
                 always {
